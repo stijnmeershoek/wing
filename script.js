@@ -90,6 +90,9 @@ form.addEventListener("submit", (e) => {
   const dimensions = document.createElement("div");
   dimensions.classList.add("dimensions-box");
   dimensions.style.cssText = `--x: ${halfWingspan}; --y: ${halfWingspan * Math.tan(sweepAngleRad) + tipChord}`;
+  document.body.style.cssText = `--visualX: ${halfWingspan}; --visualY: ${
+    halfWingspan * Math.tan(sweepAngleRad) + tipChord + 50
+  }`;
   const labelSpan = document.createElement("div");
   labelSpan.innerText = `${halfWingspan}mm`;
   labelSpan.style.cssText = `--label: ${halfWingspan}`;
