@@ -1,0 +1,126 @@
+#body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#visual {
+  transform: scale(170%) translateY(-15%);
+  width: 100%;
+  height: 100%;
+}
+
+#form {
+  position: sticky;
+  left: 15px;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  z-index: 1000;
+}
+
+.point {
+  position: absolute;
+  top: calc((var(--y) * 1px) + 50vh);
+  left: calc((var(--x) * 1px) + 50vw);
+  transform: translate(-50%, -25%);
+  width: 6px;
+  aspect-ratio: 1/1;
+  background-color: red;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.dimensions-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--x) * 1px);
+  height: calc(var(--y) * 1px);
+  border: 1px dashed black;
+  font-size: 14px;
+}
+
+.dimensions-box > div {
+  position: absolute;
+}
+
+.dimensions-box > div:nth-child(1) {
+  left: 50%;
+  transform: translateX(-50%) translateY(-110%);
+}
+
+.dimensions-box > div:nth-child(2) {
+  left: 100%;
+  bottom: calc(var(--label) * 1px * 0.5);
+  transform: translateX(10%) translateY(50%);
+}
+
+.dimensions-box > div:nth-child(3) {
+  position: absolute;
+  top: calc(var(--label) * 1px * 0.5);
+  transform: translate(-150%, -50%);
+}
+
+.dimensions-box > div:nth-child(4) {
+  position: absolute;
+  top: calc(var(--label) * 1px * 0.5);
+  transform: translate(5%, -50%);
+}
+
+.dimensions-box > div:nth-child(5) {
+  position: absolute;
+  top: calc(var(--label) * 1px * 0.8);
+  transform: translate(15%, -50%);
+}
+
+.dimensions-box > div:nth-child(6) {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 10%);
+}
+
+#area {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  font-size: 20px;
+}
+
+.ac {
+  background-color: blue;
+}
+
+.cg {
+  background-color: green;
+}
+
+.line {
+  --offsetY: 0;
+  --offsetX: 0;
+  position: absolute;
+  width: calc(var(--length) * 1px);
+  height: 4px;
+  background-color: black;
+  transform-origin: left;
+  top: calc((var(--posY) + var(--offsetY)) * 1px + 50vh);
+  left: calc((var(--posX) + var(--offsetX)) * 1px + 50vw);
+  transform: rotate(calc(var(--angle) * 1deg));
+  /* border-radius: 50px; */
+}
