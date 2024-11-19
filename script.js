@@ -7,6 +7,7 @@ const centreOfMass = 0.3994; // For all NACA symmetric airfoils i.e. NACA0020 or
 const aeroCentre = 0.25; // For all NACA symmetric airfoils i.e. NACA0020 or NACA0012
 const airfoilType = 20;
 const EEPDensity = 20;
+const avgTickness = 0.274033;
 
 const form = document.getElementById("form");
 const labelArea = document.getElementById("area");
@@ -77,7 +78,7 @@ form.addEventListener("submit", (e) => {
   container.appendChild(ACPoint);
 
   const area = calcPolygonArea(points);
-  const weight = (rootChord * 0.274033 * halfWingspan * EEPDensity * Math.pow(10, -6) + 12.8) / 1000;
+  const weight = (rootChord * avgTickness * halfWingspan * EEPDensity * Math.pow(10, -6) + 12.8) / 1000;
   const weightInN = weight * 9.80665;
   const lift = 0.5 * 1.225225 * Math.pow(3, 2) * area * Math.pow(10, -6) * 0.4;
   const liftToWeight = (lift / weightInN).toFixed(2);
